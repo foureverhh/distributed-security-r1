@@ -30,6 +30,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
+                .antMatchers("/r/r1").hasAuthority("p1")
+                .antMatchers("/r/r2").hasAuthority("p2")
                 .antMatchers("/r/**").authenticated() //all request like /r/**,must became authenticated
                 .anyRequest().permitAll() //except for /r/**, all other request is permitted
                 .and()
