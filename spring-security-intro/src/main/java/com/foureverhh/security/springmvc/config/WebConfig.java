@@ -25,6 +25,6 @@ public class WebConfig implements WebMvcConfigurer {
 
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
-        registry.addViewController("/").setViewName("redirect:/login"); //redirect to spring security log in page
+        registry.addViewController("/").setViewName("login"); //redirect to spring security log in page
     }
 }
