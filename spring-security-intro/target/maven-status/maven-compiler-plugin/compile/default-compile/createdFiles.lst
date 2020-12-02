@@ -1,3 +1,6 @@
-com/foureverhh/security/springmvc/init/SpringApplicationInitializer.class
+com/foureverhh/security/springmvc/config/WebSecurityConfig.class
 com/foureverhh/security/springmvc/config/ApplicationConfig.class
+com/foureverhh/security/springmvc/init/SpringApplicationInitializer.class
+com/foureverhh/security/springmvc/init/SpringSecurityInitializer.class
 com/foureverhh/security/springmvc/config/WebConfig.class
+com/foureverhh/security/springmvc/controller/LoginController.class

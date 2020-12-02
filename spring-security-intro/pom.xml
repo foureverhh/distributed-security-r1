@@ -16,6 +16,7 @@
         <javax.version>3.0.1</javax.version>
         <lombok.version>1.18.8</lombok.version>
         <tomcat7.version>2.2</tomcat7.version>
+        <spring.security.version>5.1.5.RELEASE</spring.security.version>
     </properties>
     <dependencies>
         <dependency>
@@ -33,6 +34,16 @@
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <version>${lombok.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-web</artifactId>
+            <version>${spring.security.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-config</artifactId>
+            <version>${spring.security.version}</version>
         </dependency>
     </dependencies>
     <build>

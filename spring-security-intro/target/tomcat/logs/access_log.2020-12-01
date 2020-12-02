@@ -1,6 +1,0 @@
-0:0:0:0:0:0:0:1 - - [01/Dec/2020:17:34:48 +0100] "GET /spring-security-intro HTTP/1.1" 302 - http-bio-8080-exec-1 0
-0:0:0:0:0:0:0:1 - - [01/Dec/2020:17:34:48 +0100] "GET /spring-security-intro/ HTTP/1.1" 200 311 http-bio-8080-exec-2 445
-0:0:0:0:0:0:0:1 - - [01/Dec/2020:17:34:48 +0100] "GET /favicon.ico HTTP/1.1" 404 - http-bio-8080-exec-4 0
-0:0:0:0:0:0:0:1 - - [01/Dec/2020:17:34:54 +0100] "GET /spring-security-intro HTTP/1.1" 302 - http-bio-8080-exec-3 0
-0:0:0:0:0:0:0:1 - - [01/Dec/2020:17:34:54 +0100] "GET /spring-security-intro/ HTTP/1.1" 200 311 http-bio-8080-exec-6 3
-0:0:0:0:0:0:0:1 - - [01/Dec/2020:17:35:10 +0100] "GET /spring-security-intro/ HTTP/1.1" 200 311 http-bio-8080-exec-8 5
