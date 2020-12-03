@@ -13,7 +13,9 @@ public class TestBCrypt {
         //encode
         String hashPassword = BCrypt.hashpw("123",BCrypt.gensalt());
         System.out.println("=============>" + hashPassword);
-
+        //encode
+        hashPassword = BCrypt.hashpw("456",BCrypt.gensalt());
+        System.out.println("=============>" + hashPassword);
         //decode
         boolean checkpw = BCrypt.checkpw("123","$2a$10$UEdpivL2FaPwYB3nRlFho.S9DFyImFDpCF8obwC9j6TdXCO5vZBWy");
         System.out.println("=============>" + checkpw);
