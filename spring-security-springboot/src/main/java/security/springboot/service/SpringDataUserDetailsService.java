@@ -13,7 +13,7 @@ public class SpringDataUserDetailsService implements UserDetailsService {
         //Connect database
         System.out.println("Username is " +username);
         UserDetails user = User.withUsername("w5")
-                .password("$2a$10$Q6/ljzt7ds3/FwsJnM4Yi.QYkGCVK.ypmWM9ev8QFkMcLy84Hc0DO") //"123"
+                .password("$2a$10$Q6/ljzt7ds3/FwsJnM4Yi.QYkGCVK.ypmWM9ev8QFkMcLy84Hc0DO") //"123 "
                 .authorities("p1","p2")
                 .build();
         return user;

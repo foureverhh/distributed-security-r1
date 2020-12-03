@@ -13,25 +13,9 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 
 @Configuration
+@EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
-    //define user's info
-    /* @Bean
-    public UserDetailsService userDetailsService(){
-        InMemoryUserDetailsManager manager = new InMemoryUserDetailsManager();
-        manager.createUser(User.withUsername("zs").password("123").authorities("p1").build());
-        manager.createUser(User.withUsername("ls").password("456").authorities("p2").build());
-        return manager;
-    }
-    */
 
-    //coder encoder
-   /*
-    @Bean
-    public PasswordEncoder passwordEncoder(){
-        return NoOpPasswordEncoder.getInstance();
-    }
-
-    */
     @Bean
     public PasswordEncoder passwordEncoder(){
         return new BCryptPasswordEncoder();
@@ -46,9 +30,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/r/**").authenticated() //all request like /r/**,must became authenticated
                 .anyRequest().permitAll() //except for /r/**, all other request is permitted
                 .and()
-                .formLogin() //allow form log in
-                .successForwardUrl("/login-success"); // define url forwarded after logged in
-
-
+                .formLogin()          //allow form log in
+                .loginPage("/login-view")
+                .loginProcessingUrl("/login")
+                .successForwardUrl("/login-success")// define url forwarded after logged in
+                .permitAll()
+                .and().csrf().disable(); //allow post
     }
 }
