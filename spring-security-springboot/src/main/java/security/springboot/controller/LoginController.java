@@ -15,7 +15,7 @@ public class LoginController {
     @ResponseBody
     public String loginSuccess(){
        String username = getUsername();
-        return username + " logged  in succeed";
+        return username + " logged in succeed";
     }
 
     /*
