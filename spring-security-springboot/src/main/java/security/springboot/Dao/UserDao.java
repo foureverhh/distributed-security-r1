@@ -19,7 +19,7 @@ public class UserDao {
         String sql = "SELECT * FROM t_user WHERE username=?";
         List<UserDto> list = jdbcTemplate.query(sql,new Object[]{username},new BeanPropertyRowMapper<>(UserDto.class));
         if(list.size() <= 0){
-            return null;
+            return null; //spring security will throw an exception
         }
         return list.get(0);
     }
@@ -33,8 +33,6 @@ public class UserDao {
                         ")"+
                      ")";
         List<PermissionDto> permissionDtos = jdbcTemplate.query(sql,new Object[]{userId},new BeanPropertyRowMapper<>(PermissionDto.class));
-        if(permissionDtos.size()<=0)
-            return null;
         /*
         for(PermissionDto permission : permissionDtos){
             permissions.add(permission.getCode());

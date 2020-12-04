@@ -28,7 +28,7 @@ public class SpringDataUserDetailsService implements UserDetailsService {
         permissions.toArray(permissionArray);
         System.out.println("Username is " +username);
         UserDetails user = User.withUsername(userDto.getUsername())
-                .password(userDto.getPassword()) //"123 "
+                .password(userDto.getPassword()) //"123"
                 .authorities(permissionArray)
                 .build();
         return user;

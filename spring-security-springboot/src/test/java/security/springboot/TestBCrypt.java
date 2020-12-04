@@ -19,5 +19,8 @@ public class TestBCrypt {
         //decode
         boolean checkpw = BCrypt.checkpw("123","$2a$10$UEdpivL2FaPwYB3nRlFho.S9DFyImFDpCF8obwC9j6TdXCO5vZBWy");
         System.out.println("=============>" + checkpw);
+        checkpw = BCrypt.checkpw("456","$2a$10$LCWEbpv6gzYgwgx6zQtSzuynI8MM/bBmnKsxQBvFPmHbBoR5vrzeO");
+        System.out.println("=============>" + checkpw);
+
     }
 }
