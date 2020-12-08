@@ -7,6 +7,10 @@
     <groupId>com.foureverhh.security</groupId>
     <artifactId>distributed-security</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>distributed-security-uua</module>
+        <module>distributed-security-order</module>
+    </modules>
 
 
     <packaging>pom</packaging>
@@ -18,16 +22,21 @@
     </parent>
 
     <properties>
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
+        <fast.json.version>1.2.47</fast.json.version>
+        <lombok.version>1.18.16</lombok.version>
     </properties>
     <dependencyManagement>
         <dependencies>
             <dependency>
-                <groupId>org.spirngframework.cloud</groupId>
-                <artifactId>spirng-cloud-dependencies</artifactId>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
                 <version>Greenwich.RELEASE</version>
+                <type>pom</type>
                 <scope>import</scope>
             </dependency>
 
@@ -41,13 +50,13 @@
             <dependency>
                 <groupId>com.alibaba</groupId>
                 <artifactId>fastjson</artifactId>
-                <version>1.2.47</version>
+                <version>${fast.json.version}</version>
             </dependency>
 
             <dependency>
                 <groupId>org.projectlombok</groupId>
                 <artifactId>lombok</artifactId>
-                <version>1.18.0</version>
+                <version>${lombok.version}</version>
             </dependency>
 
             <dependency>
