@@ -35,8 +35,8 @@ public class AuthorizationServer extends AuthorizationServerConfigurerAdapter {
     @Autowired
     private AuthorizationCodeServices authorizationCodeServices;
 
-    @Autowired
-    private AuthorizationServerTokenServices tokenServices;
+    //@Resource
+    //private AuthorizationServerTokenServices tokenServices;
 
     @Autowired
     private AuthenticationManager authenticationManager;
@@ -45,7 +45,8 @@ public class AuthorizationServer extends AuthorizationServerConfigurerAdapter {
     public AuthorizationCodeServices authorizationCodeServices(){
         return new InMemoryAuthorizationCodeServices();
     }
-    @Bean
+
+    @Bean("authorizationTokenServices")
     public AuthorizationServerTokenServices tokenServices(){
         DefaultTokenServices services = new DefaultTokenServices();
         services.setTokenStore(tokenStore);
@@ -73,14 +74,13 @@ public class AuthorizationServer extends AuthorizationServerConfigurerAdapter {
                 .redirectUris("http://www.baidu.com"); //call back url
     }
 
-
     //handle different authentication methods
     @Override
     public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
         endpoints
                 .authenticationManager(authenticationManager)
                 .authorizationCodeServices(authorizationCodeServices)
-                .tokenServices(tokenServices)
+                .tokenServices(tokenServices())
                 .allowedTokenEndpointRequestMethods(HttpMethod.POST);
     }
 
