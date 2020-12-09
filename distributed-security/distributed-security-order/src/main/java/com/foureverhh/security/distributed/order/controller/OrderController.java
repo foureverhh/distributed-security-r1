@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class OrderController {
 
     @GetMapping(value = "/r1")
-    @PreAuthorize("hasAuthority('p3')")
+    @PreAuthorize("hasAuthority('p1')")
     @ResponseBody
     public String r1(){
         System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");

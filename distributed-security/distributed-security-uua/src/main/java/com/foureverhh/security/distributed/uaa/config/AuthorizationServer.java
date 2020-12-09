@@ -19,9 +19,12 @@ import org.springframework.security.oauth2.provider.code.AuthorizationCodeServic
 import org.springframework.security.oauth2.provider.code.InMemoryAuthorizationCodeServices;
 import org.springframework.security.oauth2.provider.token.AuthorizationServerTokenServices;
 import org.springframework.security.oauth2.provider.token.DefaultTokenServices;
+import org.springframework.security.oauth2.provider.token.TokenEnhancerChain;
 import org.springframework.security.oauth2.provider.token.TokenStore;
+import org.springframework.security.oauth2.provider.token.store.JwtAccessTokenConverter;
 
 import javax.annotation.Resource;
+import java.util.Arrays;
 
 @Configuration
 @EnableAuthorizationServer
@@ -30,13 +33,13 @@ public class AuthorizationServer extends AuthorizationServerConfigurerAdapter {
     private TokenStore tokenStore;
 
     @Autowired
-    private ClientDetailsService clientDetailsService;
+    private JwtAccessTokenConverter accessTokenConverter;
 
     @Autowired
-    private AuthorizationCodeServices authorizationCodeServices;
+    private ClientDetailsService clientDetailsService;
 
-    //@Resource
-    //private AuthorizationServerTokenServices tokenServices;
+    //@Autowired
+    //private AuthorizationCodeServices authorizationCodeServices;
 
     @Autowired
     private AuthenticationManager authenticationManager;
@@ -50,6 +53,11 @@ public class AuthorizationServer extends AuthorizationServerConfigurerAdapter {
     public AuthorizationServerTokenServices tokenServices(){
         DefaultTokenServices services = new DefaultTokenServices();
         services.setTokenStore(tokenStore);
+        //set JwtToken to AuthorizationTokenServices
+        TokenEnhancerChain tokenEnhancerChain = new TokenEnhancerChain();
+        tokenEnhancerChain.setTokenEnhancers(Arrays.asList(accessTokenConverter));
+        services.setTokenEnhancer(tokenEnhancerChain);
+
         services.setClientDetailsService(clientDetailsService);
         services.setReuseRefreshToken(true);
         services.setAccessTokenValiditySeconds(7200);
@@ -79,7 +87,7 @@ public class AuthorizationServer extends AuthorizationServerConfigurerAdapter {
     public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
         endpoints
                 .authenticationManager(authenticationManager)
-                .authorizationCodeServices(authorizationCodeServices)
+                .authorizationCodeServices(authorizationCodeServices())
                 .tokenServices(tokenServices())
                 .allowedTokenEndpointRequestMethods(HttpMethod.POST);
     }
