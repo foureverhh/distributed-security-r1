@@ -5,7 +5,6 @@
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/distributed-security-uua/pom.xml" />
         <option value="$PROJECT_DIR$/distributed-security-order/pom.xml" />
       </list>
     </option>
