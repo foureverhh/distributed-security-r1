@@ -10,7 +10,7 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>distributed-security-uua</module>
+        <module>distributed-security-uaa</module>
         <module>distributed-security-order</module>
         <module>distributed-security-gateway</module>
         <module>distributed-security-discovery</module>
