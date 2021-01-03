@@ -7,15 +7,14 @@
     <groupId>com.foureverhh.security</groupId>
     <artifactId>distributed-security</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
     <modules>
         <module>distributed-security-uua</module>
         <module>distributed-security-order</module>
-        <module>distributed-security-discovery</module>
         <module>distributed-security-gateway</module>
+        <module>distributed-security-discovery</module>
     </modules>
-
-
-    <packaging>pom</packaging>
 
     <parent>
         <artifactId>spring-boot-starter-parent</artifactId>
@@ -31,6 +30,8 @@
         <java.version>1.8</java.version>
         <fast.json.version>1.2.47</fast.json.version>
         <lombok.version>1.18.16</lombok.version>
+        <oauth2.version>2.1.3.RELEASE</oauth2.version>
+        <jwt.version>1.0.10.RELEASE</jwt.version>
     </properties>
     <dependencyManagement>
         <dependencies>
@@ -68,9 +69,15 @@
             </dependency>
 
             <dependency>
-                <groupId>org.framework.security</groupId>
+                <groupId>org.springframework.security</groupId>
                 <artifactId>spring-security-jwt</artifactId>
-                <version>1.0.10.RELEASE</version>
+                <version>${jwt.version}</version>
+            </dependency>
+
+            <dependency>
+               <groupId>org.springframework.security.oauth</groupId>
+               <artifactId>spring-security-oauth2</artifactId>
+              <version>${oauth2.version}</version>
             </dependency>
 
             <dependency>
