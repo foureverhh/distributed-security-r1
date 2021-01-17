@@ -24,7 +24,7 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
     public void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                .antMatchers("/**").access("#oauth2.hasScope('all')")
+                .antMatchers("/**").access("#oauth2.hasScope('ROLE_ADMIN')")
                 .and().csrf().disable()
                 //Based on token,session do not need to store state
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS); //Based on token,session do not need to store state

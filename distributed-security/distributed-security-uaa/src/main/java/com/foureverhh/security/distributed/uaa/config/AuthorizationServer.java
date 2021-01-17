@@ -49,8 +49,8 @@ public class AuthorizationServer extends AuthorizationServerConfigurerAdapter {
 
     @Bean
     public ClientDetailsService clientDetailsService(DataSource dataSource){
-        ClientDetailsService clientDetailsService = new JdbcClientDetailsService(dataSource);
-        ((JdbcClientDetailsService) clientDetailsService).setPasswordEncoder(passwordEncoder);
+        JdbcClientDetailsService clientDetailsService = new JdbcClientDetailsService(dataSource);
+        clientDetailsService.setPasswordEncoder(passwordEncoder);
         return clientDetailsService;
     }
 

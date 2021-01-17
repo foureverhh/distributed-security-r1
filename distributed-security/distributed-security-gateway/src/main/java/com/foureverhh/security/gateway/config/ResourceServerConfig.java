@@ -23,7 +23,7 @@ public class ResourceServerConfig {
 
         @Override
         public void configure(ResourceServerSecurityConfigurer resources) throws Exception {
-            resources.tokenStore(tokenStore).stateless(true);
+            resources.resourceId(RESOURCE_ID).tokenStore(tokenStore).stateless(true);
         }
 
         @Override
@@ -42,13 +42,13 @@ public class ResourceServerConfig {
 
         @Override
         public void configure(ResourceServerSecurityConfigurer resources) throws Exception {
-            resources.tokenStore(tokenStore).stateless(true);
+            resources.resourceId(RESOURCE_ID).tokenStore(tokenStore).stateless(true);
         }
 
         @Override
         public void configure(HttpSecurity http) throws Exception {
             http.authorizeRequests()
-                    .antMatchers("/order/**").access("#oauth2.hasScope('ROLE_API')");
+                    .antMatchers("/order/**").access("#oauth2.hasScope('ROLE_ADMIN')");
         }
     }
 

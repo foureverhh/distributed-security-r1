@@ -9,7 +9,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 @SpringBootApplication
 @EnableDiscoveryClient
 @EnableHystrix
-@EnableFeignClients(basePackages = {"com.foureverhh.security.distributed.uaa"})
+//@EnableFeignClients(basePackages = {"com.foureverhh.security.distributed.uaa"})
 public class UAAServer {
     public static void main(String[] args) {
         SpringApplication.run(UAAServer.class,args);

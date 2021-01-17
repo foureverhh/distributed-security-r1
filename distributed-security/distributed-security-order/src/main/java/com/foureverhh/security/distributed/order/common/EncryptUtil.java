@@ -1,4 +1,4 @@
-package com.foureverhh.security.gateway.common;
+package com.foureverhh.security.distributed.order.common;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -30,10 +30,12 @@ public class EncryptUtil {
     }
 
     public static String decodeUTF8StringBase64(String str){
-        String decode = null;
+        logger.error("Enter decodeUTF8StringBase64 as "+str);
+        String decoded = null;
         byte[] bytes = Base64.getDecoder().decode(str);
-        decode = new String(bytes, StandardCharsets.UTF_8);
-        return decode;
+        decoded = new String(bytes, StandardCharsets.UTF_8);
+        logger.error("DecodeUTF8StringBase64  result "+decoded);
+        return decoded;
     }
 
     public static String encodeURL(String url){
